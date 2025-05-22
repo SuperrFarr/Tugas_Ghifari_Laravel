@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Nasi Padang</title>
+</head>
+<body>
+    <h1>Menu Nasi Padang</h1>
+    <form action="{{ url_for('order') }}" method="POST">
+        <ul>
+            {% for item in menu_items %}
+            <li>
+                <input type="checkbox" name="menu_item" value="{{ item.price }}">
+                {{ item.name }} - Rp {{ item.price }}
+            </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Pesan Sekarang</button>
+    </form>
+    <a href="{{ url_for('index') }}">Kembali</a>
+</body>
+</html>
